@@ -1,10 +1,23 @@
 // 模块引用
 const express = require('express');
 const cheerio = require('cheerio');
+const url = require('url');
+const bodyParser = require('body-parser');
 const tool = require('./public/tool');
 
 const port = process.env.PORT || '3000';
 const app = express();
+
+// 打印日志
+app.use((req, res, next) => {
+  const method = req.method;
+  const requestUrl = req.originalUrl;
+  const router = url.parse(requestUrl);
+  const date = new Date();
+  const currentTime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.toLocaleTimeString(); 
+  console.log(`${method} ${router.path} ${currentTime}`);
+  next();
+});
 
 // 首页发送数据
 app.get('/', (req, res) => {
@@ -36,6 +49,8 @@ app.get('/get_cnode_info', (req, res) => {
     })
     .catch(err => {
       console.log(err);
+      res.status(500);
+      res.json(err.message);
     })
 });
 
