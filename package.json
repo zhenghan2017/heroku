@@ -1,0 +1,21 @@
+{
+  "name": "learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "istanbul": "istanbul cover C:/Users/Administrator/AppData/Roaming/npm/node_modules/mocha/bin/_mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "request": "^2.86.0",
+    "should": "^13.2.1"
+  },
+  "engines": {
+    "node": "8.9.4"
+  }
+}
